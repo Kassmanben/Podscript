@@ -4,10 +4,12 @@ import {graphql} from 'react-apollo';
 import './app.css';
 import Episode from './Episode'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faTimesCircle, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheckCircle)
 library.add(faTimesCircle)
+library.add(faChevronDown)
+library.add(faChevronUp)
 
 const EpisodesQuery = gql`{
   episodes {

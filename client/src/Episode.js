@@ -40,7 +40,7 @@ class Episode extends Component {
             <div className="col-xs-2">
             <img className='img-thumb img-fluid' src={require('./MBMBaM.jpg')} alt="My Brother, My Brother and Me Logo"></img>
             </div>
-            <div className="col-7">
+            <div className="col-7 col-lg-9">
                 <div className="episode-info">
                     <div className='row name text-truncate'>{EpisodeTitle}</div>
                 </div>
@@ -51,7 +51,6 @@ class Episode extends Component {
                 <div id={`${id}-completed`} className="completed col-1">
                     <FontAwesomeIcon icon={this.state.completed === "0" ? "times-circle":"check-circle"} 
                         color={this.state.completed === "0" ? "#a91212":"#2e9e2e"} size="2x" vertical-align="middle"/>
-                    <p>No Transcription Available Yet</p>
                 </div>
         </div>
         

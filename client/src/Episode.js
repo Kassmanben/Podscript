@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Button} from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -52,6 +51,7 @@ class Episode extends Component {
                 <div id={`${id}-completed`} className="completed col-1">
                     <FontAwesomeIcon icon={this.state.completed === "0" ? "times-circle":"check-circle"} 
                         color={this.state.completed === "0" ? "#a91212":"#2e9e2e"} size="2x" vertical-align="middle"/>
+                    <p>No Transcription Available Yet</p>
                 </div>
         </div>
         

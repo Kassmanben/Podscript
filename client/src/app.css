@@ -4,6 +4,14 @@
     padding: 0;
 }
 
+#search{
+    margin: 20px;
+}
+.logo{
+    margin:auto;
+    max-width: 600px;
+}
+
 .img-expanded{
     display: block;
     margin: 10%;
@@ -120,7 +128,7 @@
 .number, .completed{
     margin: auto;
     text-align: center;
-    font-size: calc(1vw + 1vh + .5vmin);
+    font-size: medium;
 }
 
 .row a{

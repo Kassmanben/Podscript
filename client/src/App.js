@@ -3,6 +3,8 @@ import gql from 'graphql-tag'
 import {graphql} from 'react-apollo';
 import './app.css';
 import Episode from './Episode'
+import {Button} from 'react-bootstrap';
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckCircle, faTimesCircle, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
@@ -21,16 +23,46 @@ const EpisodesQuery = gql`{
 }
 }`
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      title: "",
+      episodes: []
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({title: event.target.value})
+  }
+
+  
   render() {
     const {data: {loading, episodes}} = this.props
     if(loading){
-      return(null)
+      return(<div>Loading</div>)
     }
+
     return (
       <div className="App">
+      <div className="row">
+        <img className='logo img-fluid' src={require('./Podscript.png')} alt="Podscript Logo"></img>      
+      </div>
+      <div className="row">
+      <form>
+        <input type="text" className="form-control form-control-lg" id="search" placeholder="Search" value={this.state.title} onChange={this.handleChange}/>
+      </form>
+      </div>
         {
-          episodes.map(episode =>{
+          episodes.filter(function(episode) {
+            if (episode.EpisodeDescription.toLowerCase().indexOf(this.state.title.toLowerCase()) !== -1||
+            episode.EpisodeTitle.toLowerCase().indexOf(this.state.title.toLowerCase()) !== -1) {
+                return episode
+            }
+        }, this).map(episode =>{
             return(
+
               <Episode
                 key = {`${episode.id}-episode-id`}
                 EpisodeDescription = {episode.EpisodeDescription}
